@@ -3,11 +3,8 @@ package com.demo.zzy;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Cat {
     private String name;
@@ -87,13 +84,10 @@ public class Cat {
             return false;
         }
         if (name == null) {
-            if (other.name != null) {
-                return false;
-            }
-        } else if (!name.equals(other.name)) {
-            return false;
+            return other.name == null;
+        } else {
+            return name.equals(other.name);
         }
-        return true;
     }
 
     //main方法
@@ -158,8 +152,10 @@ public class Cat {
         Map<String, Object> map2 = cats.stream()
                 .distinct()
                 .sorted(Comparator.comparingInt(Cat::getAge))
-                .collect(Collectors.toMap(Cat::getName, cat -> cat.getAge(), (oldValue, newValue) -> oldValue));
+                .collect(Collectors.toMap(Cat::getName, Cat::getAge, (oldValue, newValue) -> oldValue));
         System.out.println(map2);
+
+
 
 
     }
