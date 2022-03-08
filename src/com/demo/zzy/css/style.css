@@ -40,3 +40,10 @@ body{
   background-position: top right;
   margin-right:200px;
 }
+
+hr{
+  border: 1px solid #ff7;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
