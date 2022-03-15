@@ -11,6 +11,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="gradle" target="1.8" />
+      <module name="gradle_main" target="1.8" />
+      <module name="gradle_test" target="1.8" />
       <module name="standard-service" target="8" />
       <module name="standard-web" target="8" />
     </bytecodeTargetLevel>
