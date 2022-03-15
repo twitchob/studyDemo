@@ -1,4 +1,4 @@
-package com.demo.zzy;
+package com.demo.zzy.test;
 
 public class Test {
     public static void main(String[] args) {
@@ -10,6 +10,7 @@ public class Test {
 
 
         System.out.println("0-1: "+str.substring(0,1));
+        System.out.println("0-1: "+str.charAt(0));
         System.out.println("1-1: "+str.substring(1,1));
 
         System.out.println(str.startsWith("0"));
