@@ -16,6 +16,8 @@ public class Cat {
         this.age = age;
         this.color = color;
     }
+    public Cat(){}
+
 
     public String getName() {
         return name;

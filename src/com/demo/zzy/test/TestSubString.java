@@ -1,6 +1,6 @@
 package com.demo.zzy.test;
 
-public class Test {
+public class TestSubString {
     public static void main(String[] args) {
         String str = "0.123456";
         System.out.println("0-2: "+str.substring(0,2));
