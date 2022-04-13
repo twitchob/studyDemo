@@ -2,6 +2,7 @@ package com.demo.zzy.test;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -66,5 +67,8 @@ public class StreamSort {
         cats = cats.stream().sorted(Comparator.comparing(Cat::getAge, Comparator.reverseOrder()).thenComparing(Cat::getName)).collect(Collectors.toList());
         System.out.println("年龄降序,名字升序:");
         System.out.println(cats);
+
+
+
     }
 }
