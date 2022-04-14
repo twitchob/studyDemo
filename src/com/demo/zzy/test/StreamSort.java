@@ -22,6 +22,8 @@ public class StreamSort {
         Cat cat5 = new Cat("cat5", 4, "black");
         Cat cat6 = new Cat("cat6", 6, "white");
         Cat cat7 = new Cat("cat7", 1, "black");
+        Cat cat8 = new Cat("", 2, "black");
+        Cat cat9 = new Cat("", 2, "White");
         //new cat list
         List<Cat> cats = new ArrayList<Cat>(7);
         cats.add(cat1);
@@ -31,8 +33,16 @@ public class StreamSort {
         cats.add(cat3);
         cats.add(cat4);
         cats.add(cat7);
+        cats.add(cat8);
+        cats.add(cat9);
         System.out.println("排序前");
         System.out.println(cats);
+
+
+        cats = cats.stream().sorted(Comparator.comparing(Cat::getAge).thenComparing(Cat::getName)).collect(Collectors.toList());
+
+        System.out.println(cats);
+        System.out.println("===========================");
         //sort
         cats = cats.stream().sorted(Comparator.comparing(Cat::getAge)).collect(Collectors.toList());
         System.out.println("年龄排序:");
