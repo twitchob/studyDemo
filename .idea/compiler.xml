@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="standard-service" />
+        <module name="zzyKafka" />
         <module name="standard-web" />
       </profile>
     </annotationProcessing>
@@ -14,8 +15,9 @@
       <module name="gradle" target="1.8" />
       <module name="gradle_main" target="1.8" />
       <module name="gradle_test" target="1.8" />
-      <module name="standard-service" target="8" />
-      <module name="standard-web" target="8" />
+      <module name="standard-service" target="1.8" />
+      <module name="standard-web" target="1.8" />
+      <module name="zzyKafka" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
