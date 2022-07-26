@@ -1,4 +1,4 @@
-package com.example;
+package com.example.乱七八糟;
 
 /**
  * @author zhangzhongyuan@sinovatech.com
