@@ -8,8 +8,10 @@ package com.demo.zzy.generic;
 public class Generic {
     public static void main(String[] args) {
         int h = 512;
-        int i = h >>> 3;
+        int i = h >>> 3;//无符号右移
+        int j = h >> 3;//右移
         System.out.println(i);
+        System.out.println(j);
     }
 }
 
