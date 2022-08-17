@@ -1,7 +1,5 @@
 package com.demo.zzy.concurrency;
 
-import jdk.internal.org.objectweb.asm.tree.MultiANewArrayInsnNode;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +10,7 @@ import java.util.Map;
  */
 public class MyRunnable  {
     public static void main(String[] args) {
-        ///new map
+        //hashmap，同一个key，后放入的会覆盖之前的数据
         Map<String,String> map = new HashMap<>();
         map.put("1","1");
         map.put("1","2");
