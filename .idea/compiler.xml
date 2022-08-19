@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="standard-service" />
         <module name="kafka2" />
+        <module name="vertxTest" />
         <module name="standard-web" />
         <module name="KafkaTest" />
       </profile>
@@ -21,6 +22,7 @@
       <module name="KafkaTest" target="1.8" />
       <module name="standard-service" target="1.8" />
       <module name="standard-web" target="1.8" />
+      <module name="vertxTest" target="1.8" />
       <module name="zzyKafka" target="1.8" />
     </bytecodeTargetLevel>
   </component>

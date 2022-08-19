@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/KafkaTest/pom.xml" />
         <option value="$PROJECT_DIR$/zzyKafka/kafka2/pom.xml" />
         <option value="$PROJECT_DIR$/kafka2/pom.xml" />
+        <option value="$PROJECT_DIR$/vertxTest/pom.xml" />
       </list>
     </option>
   </component>
