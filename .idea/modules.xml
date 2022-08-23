@@ -5,8 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/KafkaTest/KafkaTest.iml" filepath="$PROJECT_DIR$/KafkaTest/KafkaTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka2/kafka2.iml" filepath="$PROJECT_DIR$/kafka2/kafka2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis/redis.iml" filepath="$PROJECT_DIR$/redis/redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/standard-service/standard-service.iml" filepath="$PROJECT_DIR$/standard-service/standard-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/standard-web/standard-web.iml" filepath="$PROJECT_DIR$/standard-web/standard-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/vertxTest/vertxTest.iml" filepath="$PROJECT_DIR$/vertxTest/vertxTest.iml" />
     </modules>
   </component>

@@ -25,11 +25,12 @@ public class Testjiami {
         // 加密为16进制表示 f2106f5c351f372b7f977022b65ba4df
         String encryptHex = aes.encryptHex(content);
         // 解密为字符串 test中文
-        String decryptStr = aes.decryptStr(encryptHex, CharsetUtil.CHARSET_UTF_8);
+        String decryptStr = aes.decryptStr("90x+obGcYi4+hO1Ce4dwUTHYZNKeieAz+Kcu8rBzdrQ=", CharsetUtil.CHARSET_UTF_8);
 
 
         System.out.println("加密后" + encryptHex);
         System.out.println("解密后："+decryptStr);
+        System.out.println(key);
 
     }
 }

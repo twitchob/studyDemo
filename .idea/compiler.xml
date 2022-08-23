@@ -10,7 +10,7 @@
         <module name="standard-service" />
         <module name="kafka2" />
         <module name="vertxTest" />
-        <module name="standard-web" />
+        <module name="redis" />
         <module name="KafkaTest" />
       </profile>
     </annotationProcessing>
@@ -20,6 +20,7 @@
       <module name="gradle_test" target="1.8" />
       <module name="kafka2" target="1.8" />
       <module name="KafkaTest" target="1.8" />
+      <module name="redis" target="1.8" />
       <module name="standard-service" target="1.8" />
       <module name="standard-web" target="1.8" />
       <module name="vertxTest" target="1.8" />
