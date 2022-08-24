@@ -19,7 +19,7 @@ public class RedisUtil {
         // 设置最大连接数
         JedisPoolConfig config = new JedisPoolConfig();
         // 可以创建30jedis实例
-        config.setMaxTotal(3000);
+        config.setMaxTotal(30000);
         // 设置最大空闲连接数
         config.setMaxIdle(300);
         //等待可用连接的最大时间
