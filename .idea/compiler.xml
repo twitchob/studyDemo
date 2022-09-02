@@ -7,22 +7,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="standard-service" />
-        <module name="kafka2" />
         <module name="vertxTest" />
+        <module name="standard-service" />
+        <module name="JavaTest" />
+        <module name="vertx-example" />
         <module name="redis" />
-        <module name="KafkaTest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="gradle" target="1.8" />
       <module name="gradle_main" target="1.8" />
       <module name="gradle_test" target="1.8" />
+      <module name="JavaTest" target="1.8" />
       <module name="kafka2" target="1.8" />
       <module name="KafkaTest" target="1.8" />
       <module name="redis" target="1.8" />
       <module name="standard-service" target="1.8" />
       <module name="standard-web" target="1.8" />
+      <module name="vertx-example" target="1.8" />
       <module name="vertxTest" target="1.8" />
       <module name="zzyKafka" target="1.8" />
     </bytecodeTargetLevel>
