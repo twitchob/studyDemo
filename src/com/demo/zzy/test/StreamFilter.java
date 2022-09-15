@@ -42,9 +42,20 @@ public class StreamFilter {
 
         List<String> collect = ss.stream().map(Student::getName).collect(Collectors.toList());
         System.out.println(collect);
-
-
         List<Student> collect1 = ss.stream().filter(s -> list.contains(s.getName())).collect(Collectors.toList());
         System.out.println(collect1);
+
+        System.out.println("===============================================================");
+
+
+        List<String> strs = new ArrayList<>();
+        strs.add("a_abc");
+        strs.add("b_abc");
+        strs.add("v_abc");
+        strs.add("c_abc");
+        strs.add("c_ac");
+
+        List<String> abc = strs.stream().filter(s -> !s.contains("_abc")).collect(Collectors.toList());
+        System.out.println(abc);
     }
 }

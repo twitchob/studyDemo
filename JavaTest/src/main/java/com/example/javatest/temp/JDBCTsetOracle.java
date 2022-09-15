@@ -2,6 +2,8 @@ package com.example.javatest.temp;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 /**
  * @author zhangzhongyuan@szanfu.cn
@@ -9,6 +11,81 @@ import java.sql.DriverManager;
  * @since 2022/8/26 10:09
  */
 public class JDBCTsetOracle {
+
+    static String sql = "create or replace trigger\n" +
+            "tg_enc_STUDENT\n" +
+            "instead of insert or update or delete on STUDENT\n" +
+            "for each row\n" +
+            "\n" +
+            "declare\n" +
+            "  v_hsm_ip   varchar2(15);\n" +
+            "  v_hsm_port binary_integer;\n" +
+            "  v_key      char(16);\n" +
+            "  v_key_len  binary_integer;\n" +
+            "res_AGE  binary_integer;\n" +
+            "v_out_AGE varchar2(1024);\n" +
+            "v_out_len_AGE binary_integer;\n" +
+            "res_NAME  binary_integer;\n" +
+            "v_out_NAME varchar2(1024);\n" +
+            "v_out_len_NAME binary_integer;\n" +
+            "res_PHONE  binary_integer;\n" +
+            "v_out_PHONE varchar2(1024);\n" +
+            "v_out_len_PHONE binary_integer;\n" +
+            "begin\n" +
+            " v_hsm_ip   := '192.168.1.201';\n" +
+            "v_hsm_port := 1521;\n" +
+            "v_key      := '1234123412341234';\n" +
+            "v_key_len  := 16;\n" +
+            " if inserting then\n" +
+            "res_AGE := db_enc(v_hsm_ip,\n" +
+            "v_hsm_port,\n" +
+            "v_key,\n" +
+            "v_key_len,:new.AGE,\n" +
+            "lengthb(:new.AGE),\n" +
+            "v_out_AGE,\n" +
+            "v_out_len_AGE);\n" +
+            "res_NAME := db_enc(v_hsm_ip,\n" +
+            "v_hsm_port,\n" +
+            "v_key,\n" +
+            "v_key_len,:new.NAME,\n" +
+            "lengthb(:new.NAME),\n" +
+            "v_out_NAME,\n" +
+            "v_out_len_NAME);\n" +
+            "res_PHONE := db_enc(v_hsm_ip,\n" +
+            "v_hsm_port,\n" +
+            "v_key,\n" +
+            "v_key_len,:new.PHONE,\n" +
+            "lengthb(:new.PHONE),\n" +
+            "v_out_PHONE,\n" +
+            "v_out_len_PHONE);\n" +
+            "insert into STUDENT_$ENCRYPT$(ID,CLASS,SEX,AGE,NAME,PHONE)\n" +
+            "values (:new.ID,:new.CLASS,:new.SEX,v_out_AGE,v_out_NAME,v_out_PHONE);\n" +
+            "elsif updating then res_AGE := db_enc(v_hsm_ip,\n" +
+            "v_hsm_port,\n" +
+            "v_key,\n" +
+            "v_key_len,:new.AGE,\n" +
+            "lengthb(:new.AGE),\n" +
+            "v_out_AGE,\n" +
+            "v_out_len_AGE);\n" +
+            "res_NAME := db_enc(v_hsm_ip,\n" +
+            "v_hsm_port,\n" +
+            "v_key,\n" +
+            "v_key_len,:new.NAME,\n" +
+            "lengthb(:new.NAME),\n" +
+            "v_out_NAME,\n" +
+            "v_out_len_NAME);\n" +
+            "res_PHONE := db_enc(v_hsm_ip,\n" +
+            "v_hsm_port,\n" +
+            "v_key,\n" +
+            "v_key_len,:new.PHONE,\n" +
+            "lengthb(:new.PHONE),\n" +
+            "v_out_PHONE,\n" +
+            "v_out_len_PHONE);\n" +
+            "update\n" +
+            "STUDENT_$ENCRYPT$ set\n" +
+            "ID= :new.ID,CLASS= :new.CLASS,SEX= :new.SEX,AGE = v_out_AGE,NAME = v_out_NAME,PHONE = v_out_PHONE where ID = :old.ID;\n" +
+            " else\n" +
+            "    delete from STUDENT_$ENCRYPT$ where ID = :old.ID;  end if;  dbms_output.put_line(res_AGE);  dbms_output.put_line(res_NAME);  dbms_output.put_line(res_PHONE);end;";
 
     public static void main(String[] args) throws Exception {
 
@@ -23,6 +100,12 @@ public class JDBCTsetOracle {
             if (null != conn) {
                 System.out.println("连接数据库成功!");
             }
+            assert conn != null;
+
+            String sql = "update STUDENT set ID='1',AGE='26',NAME='张忠源' where ID=1";
+           //conn.prepareStatement(sql).executeUpdate();
+            conn.createStatement().executeUpdate(sql);
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
