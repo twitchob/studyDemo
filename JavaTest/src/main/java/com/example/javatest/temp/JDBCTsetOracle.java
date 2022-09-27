@@ -13,8 +13,8 @@ import java.sql.Statement;
 public class JDBCTsetOracle {
 
     static String sql = "create or replace trigger\n" +
-            "tg_enc_STUDENT\n" +
-            "instead of insert or update or delete on STUDENT\n" +
+            "tg_enc_TEACHER\n" +
+            "instead of insert or update or delete on TEACHER\n" +
             "for each row\n" +
             "\n" +
             "declare\n" +
@@ -58,8 +58,8 @@ public class JDBCTsetOracle {
             "lengthb(:new.PHONE),\n" +
             "v_out_PHONE,\n" +
             "v_out_len_PHONE);\n" +
-            "insert into STUDENT_$ENCRYPT$(ID,CLASS,SEX,AGE,NAME,PHONE)\n" +
-            "values (:new.ID,:new.CLASS,:new.SEX,v_out_AGE,v_out_NAME,v_out_PHONE);\n" +
+            "insert into TEACHER_$ENCRYPT$(ID,SEX,AGE,NAME,PHONE)\n" +
+            "values (:new.ID,:new.SEX,v_out_AGE,v_out_NAME,v_out_PHONE);\n" +
             "elsif updating then res_AGE := db_enc(v_hsm_ip,\n" +
             "v_hsm_port,\n" +
             "v_key,\n" +
@@ -82,10 +82,10 @@ public class JDBCTsetOracle {
             "v_out_PHONE,\n" +
             "v_out_len_PHONE);\n" +
             "update\n" +
-            "STUDENT_$ENCRYPT$ set\n" +
-            "ID= :new.ID,CLASS= :new.CLASS,SEX= :new.SEX,AGE = v_out_AGE,NAME = v_out_NAME,PHONE = v_out_PHONE where ID = :old.ID;\n" +
+            "TEACHER_$ENCRYPT$ set\n" +
+            "ID= :new.ID,SEX= :new.SEX,AGE = v_out_AGE,NAME = v_out_NAME,PHONE = v_out_PHONE where ID = :old.ID;\n" +
             " else\n" +
-            "    delete from STUDENT_$ENCRYPT$ where ID = :old.ID;  end if;  dbms_output.put_line(res_AGE);  dbms_output.put_line(res_NAME);  dbms_output.put_line(res_PHONE);end;";
+            "    delete from TEACHER_$ENCRYPT$ where ID = :old.ID;  end if;  dbms_output.put_line(res_AGE);  dbms_output.put_line(res_NAME);  dbms_output.put_line(res_PHONE);end;";
 
     public static void main(String[] args) throws Exception {
 
@@ -102,9 +102,9 @@ public class JDBCTsetOracle {
             }
             assert conn != null;
 
-            String sql = "update STUDENT set ID='1',AGE='26',NAME='张忠源' where ID=1";
            //conn.prepareStatement(sql).executeUpdate();
             conn.createStatement().executeUpdate(sql);
+            System.out.println("成功");
 
         } catch (Exception e) {
             e.printStackTrace();
