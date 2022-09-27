@@ -10,5 +10,12 @@ public class AsciiDemo {
         char a = 65;
         System.out.println(a);
 
+        String str = "AaZ";
+        //拆开
+        char[] chars = str.toCharArray();
+        for (char aChar : chars) {
+            System.out.println((int) aChar);
+        }
+
     }
 }
