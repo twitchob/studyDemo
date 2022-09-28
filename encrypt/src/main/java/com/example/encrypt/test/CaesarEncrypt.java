@@ -19,6 +19,9 @@ public class CaesarEncrypt {
 
     }
 
+    /**
+     * 解密
+     */
     private static String decrypt(int key, String extracted) {
         char[] chars = extracted.toCharArray();
         StringBuilder sb = new StringBuilder();
