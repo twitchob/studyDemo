@@ -34,7 +34,7 @@ public class DruidConfig {
 
 
     @Bean
-    @ConfigurationProperties(prefix = "spring.datasources")
+    @ConfigurationProperties(prefix = "spring.datasource")
     public DruidDataSource DruidDataSource(){
         return new DruidDataSource();
     }
