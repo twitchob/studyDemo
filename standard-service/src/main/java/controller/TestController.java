@@ -7,7 +7,7 @@ import com.oracle.webservices.internal.api.databinding.DatabindingMode;
  * @description TestController
  * @since 2022/3/24 20:30
  */
-//@RequestMapping(value = "/test")
+@RequestMapping(value = "/test")
     //@RestController
 public class TestController {
 
