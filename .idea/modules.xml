@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Af_Interface_Call/Af_Interface_Call.iml" filepath="$PROJECT_DIR$/Af_Interface_Call/Af_Interface_Call.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaTest/JavaTest.iml" filepath="$PROJECT_DIR$/JavaTest/JavaTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dynamicInject/dynamicInject.iml" filepath="$PROJECT_DIR$/dynamicInject/dynamicInject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/encrypt/encrypt.iml" filepath="$PROJECT_DIR$/encrypt/encrypt.iml" />
-      <module fileurl="file://$PROJECT_DIR$/redis/redis.iml" filepath="$PROJECT_DIR$/redis/redis.iml" />
-      <module fileurl="file://$PROJECT_DIR$/standard-service/standard-service.iml" filepath="$PROJECT_DIR$/standard-service/standard-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/vertxTest/vertx-example.iml" filepath="$PROJECT_DIR$/vertxTest/vertx-example.iml" />
       <module fileurl="file://$PROJECT_DIR$/vertxTest/vertxTest.iml" filepath="$PROJECT_DIR$/vertxTest/vertxTest.iml" />
     </modules>
   </component>

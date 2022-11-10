@@ -21,9 +21,9 @@ public class DruidTest {
         //Properties 放入元素
         Properties properties = new Properties();
         properties.put("driverClassName", "oracle.jdbc.driver.OracleDriver");
-        properties.put("url", "jdbc:oracle:thin:@192.168.1.201:1521:helowin");
+        properties.put("url", "jdbc:oracle:thin:@192.168.10.80:1521:helowin");
         properties.put("username", "chsm");
-        properties.put("password", "syswin#123");
+        properties.put("password", "szaf1234");
         properties.put("initialSize", "10");
         properties.put("maxActive", "20");
         DataSource dataSource = DruidDataSourceFactory.createDataSource(properties);
@@ -31,7 +31,7 @@ public class DruidTest {
         System.out.println(conn);
 
         Statement statement = conn.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from T_TEST");
+        ResultSet resultSet = statement.executeQuery("select * from dual");
         ResultSetMetaData metaData = resultSet.getMetaData();
         int columnCount = metaData.getColumnCount();
         System.out.println(columnCount);

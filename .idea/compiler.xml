@@ -9,37 +9,28 @@
         <outputRelativeToContentRoot value="true" />
         <module name="vertxTest" />
         <module name="encrypt" />
-        <module name="Af_Interface_Call" />
         <module name="dynamicInject" />
         <module name="standard-service" />
         <module name="JavaTest" />
         <module name="vertx-example" />
         <module name="redis" />
+        <module name="springboot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Af_Interface_Call" target="1.8" />
-      <module name="dynamicInject" target="1.8" />
-      <module name="encrypt" target="1.8" />
       <module name="gradle" target="1.8" />
       <module name="gradle_main" target="1.8" />
       <module name="gradle_test" target="1.8" />
-      <module name="JavaTest" target="1.8" />
       <module name="kafka2" target="1.8" />
       <module name="KafkaTest" target="1.8" />
-      <module name="redis" target="1.8" />
-      <module name="standard-service" target="1.8" />
       <module name="standard-web" target="1.8" />
-      <module name="vertx-example" target="1.8" />
       <module name="vertxTest" target="1.8" />
       <module name="zzyKafka" target="1.8" />
-      <module name="zzzz" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Af_Interface_Call" options="-parameters" />
-      <module name="zzzz" options="-parameters" />
+      <module name="springboot" options="-parameters" />
     </option>
   </component>
 </project>
