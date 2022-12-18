@@ -8,8 +8,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="vertxTest" />
-        <module name="encrypt" />
         <module name="Af_Interface_Call" />
+        <module name="encrypt" />
         <module name="dynamicInject" />
         <module name="standard-service" />
         <module name="JavaTest" />
