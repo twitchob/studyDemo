@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ANTLRGenerationPreferences">
+    <option name="perGrammarGenerationSettings">
+      <list>
+        <PerGrammarGenerationSettings>
+          <option name="fileName" value="$PROJECT_DIR$/JavaTest/src/main/java/com/example/javatest/antlr/Hello.g4" />
+          <option name="autoGen" value="true" />
+          <option name="outputDir" value="D:\learnPlace\TestToolForZZY\JavaTest\src\main\java\com\example\javatest\antlr" />
+          <option name="libDir" value="" />
+          <option name="encoding" value="" />
+          <option name="pkg" value="hello" />
+          <option name="language" value="" />
+          <option name="generateVisitor" value="true" />
+        </PerGrammarGenerationSettings>
+      </list>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FindBugsConfigurable">
     <option name="make" value="true" />
@@ -20,6 +36,7 @@
         <option value="$PROJECT_DIR$/encrypt/pom.xml" />
         <option value="$PROJECT_DIR$/dynamicInject/pom.xml" />
         <option value="$PROJECT_DIR$/springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/SPIDemo/pom.xml" />
       </list>
     </option>
   </component>

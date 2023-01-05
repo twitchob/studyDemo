@@ -1,10 +1,7 @@
 package com.example.javatest.temp;
 
 import java.io.PipedWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 /**
  * @author zhangzhongyuan@szanfu.cn
@@ -14,20 +11,32 @@ import java.sql.ResultSet;
 public class JDBCTest {
     public static void main(String[] args) throws  Exception{
         String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://192.168.3.111:3306/db1?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+        String url = "jdbc:mysql://192.168.20.81:3308/db1?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&allowMultiQueries=true";
         String user = "root";
         String psw = "123456";
 
         Class.forName(driver);
 
         Connection conn = DriverManager.getConnection(url, user, psw);
-        PreparedStatement pstatement = conn.prepareStatement("select * from t1 ");
-        ResultSet resultSet = pstatement.executeQuery();
-        int columnCount = resultSet.getMetaData().getColumnCount();
-        for (int i = 1; i < columnCount+1; i++) {
-            System.out.println(resultSet.getMetaData().getColumnName(i));
-        }
+//        PreparedStatement pstatement = conn.prepareStatement("select * from t1 ");
+//        ResultSet resultSet = pstatement.executeQuery();
+//        int columnCount = resultSet.getMetaData().getColumnCount();
+//        for (int i = 1; i < columnCount+1; i++) {
+//            System.out.println(resultSet.getMetaData().getColumnName(i));
+//        }
 
+//        Statement statement = conn.createStatement();
+//        boolean execute = statement.execute("SHOW VARIABLES LIKE 'lower_case_%'; SHOW VARIABLES LIKE 'sql_mode'; SELECT COUNT(*) AS support_ndb FROM information_schema.ENGINES WHERE Engine = 'ndbcluster'"
+//                , 2);
+//        System.out.println(execute);
+
+        Statement statement = conn.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT SCHEMA_NAME, DEFAULT_CHARACTER_SET_NAME, DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA");
+        while (resultSet.next()){
+            System.out.println(resultSet.getString(1));
+            System.out.println(resultSet.getString(2));
+            System.out.println(resultSet.getString(3));
+        }
 
     }
 }
