@@ -26,7 +26,6 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/standard-service/pom.xml" />
         <option value="$PROJECT_DIR$/KafkaTest/pom.xml" />
         <option value="$PROJECT_DIR$/zzyKafka/kafka2/pom.xml" />
         <option value="$PROJECT_DIR$/kafka2/pom.xml" />
@@ -37,6 +36,7 @@
         <option value="$PROJECT_DIR$/dynamicInject/pom.xml" />
         <option value="$PROJECT_DIR$/springboot/pom.xml" />
         <option value="$PROJECT_DIR$/SPIDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/designPattern/pom.xml" />
       </list>
     </option>
   </component>

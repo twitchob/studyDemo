@@ -11,8 +11,8 @@
         <module name="Af_Interface_Call" />
         <module name="encrypt" />
         <module name="dynamicInject" />
-        <module name="standard-service" />
         <module name="JavaTest" />
+        <module name="designPattern" />
         <module name="vertx-example" />
         <module name="redis" />
         <module name="springboot" />
@@ -25,6 +25,7 @@
       <module name="gradle_test" target="1.8" />
       <module name="kafka2" target="1.8" />
       <module name="KafkaTest" target="1.8" />
+      <module name="standard-service" target="1.8" />
       <module name="standard-web" target="1.8" />
       <module name="vertxTest" target="1.8" />
       <module name="zzyKafka" target="1.8" />
@@ -35,6 +36,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Af_Interface_Call" options="-parameters" />
       <module name="SPIDemo" options="-parameters" />
+      <module name="designPattern" options="-parameters" />
       <module name="springboot" options="-parameters" />
       <module name="zzzz" options="-parameters" />
     </option>
