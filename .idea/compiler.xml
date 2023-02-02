@@ -13,6 +13,7 @@
         <module name="dynamicInject" />
         <module name="JavaTest" />
         <module name="designPattern" />
+        <module name="testHSMUtil" />
         <module name="vertx-example" />
         <module name="redis" />
         <module name="springboot" />
@@ -38,6 +39,7 @@
       <module name="SPIDemo" options="-parameters" />
       <module name="designPattern" options="-parameters" />
       <module name="springboot" options="-parameters" />
+      <module name="testHSMUtil" options="-parameters" />
       <module name="zzzz" options="-parameters" />
     </option>
   </component>

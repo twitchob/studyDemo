@@ -30,13 +30,28 @@ public class JDBCTest {
 //                , 2);
 //        System.out.println(execute);
 
-        Statement statement = conn.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT SCHEMA_NAME, DEFAULT_CHARACTER_SET_NAME, DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA");
-        while (resultSet.next()){
-            System.out.println(resultSet.getString(1));
-            System.out.println(resultSet.getString(2));
-            System.out.println(resultSet.getString(3));
-        }
+//        Statement statement = conn.createStatement();
+//        ResultSet resultSet = statement.executeQuery("SELECT SCHEMA_NAME, DEFAULT_CHARACTER_SET_NAME, DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA");
+//        while (resultSet.next()){
+//            System.out.println(resultSet.getString(1));
+//            System.out.println(resultSet.getString(2));
+//            System.out.println(resultSet.getString(3));
+//        }
+
+              Statement statement = conn.createStatement();
+              //select * from user_test
+                ResultSet resultSet = statement.executeQuery("select * from user_test");
+                while (resultSet.next()){
+                    System.out.println(resultSet.getString(1));
+                    System.out.println(resultSet.getString(2));
+                    System.out.println(resultSet.getString(3));
+                    System.out.println(resultSet.getString(4));
+                    System.out.println(resultSet.getString(5));
+                    System.out.println(resultSet.getString(6));
+                    System.out.println(resultSet.getString(7));
+                    System.out.println("===================================");
+                }
+
 
     }
 }

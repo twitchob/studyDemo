@@ -6,6 +6,11 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * @ClassName AntlrTest
  * @Description 单元测试
@@ -45,6 +50,29 @@ public class AntlrTest {
         hello.HelloParser parser = new hello.HelloParser(tokens);
         //语法分析器的规则
         parser.r();
+
+    }
+
+
+    @Test
+    public  void testMap() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("1","11");
+        map.put("2","22");
+        map.put("3","33");
+
+
+        System.out.println("map = " + map);
+        Collection<String> values = map.values();
+        System.out.println("values = " + values);
+
+        Set<Map.Entry<String, String>> entries = map.entrySet();
+        System.out.println("entries = " + entries);
+
+        for (Map.Entry<String, String> entry : entries) {
+            System.out.println("entry.getvalue = " + entry.getValue());
+        }
+
 
     }
 }
