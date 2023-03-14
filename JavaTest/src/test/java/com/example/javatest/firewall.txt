@@ -1,0 +1,199 @@
+firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="10.10.10.110" port protocol="tcp" port="443" accept"
+firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="10.10.10.87" port protocol="tcp" port="443" accept"
+firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="10.88.33.70" port protocol="tcp" port="443" accept"
+firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="100.111.130.12" port protocol="tcp" port="443" accept"
+firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="100.111.130.13" port protocol="tcp" port="443" accept"
+firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="100.121.130.12" port protocol="tcp" port="443" accept"
+firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="100.121.130.13" port protocol="tcp" port="443" accept"
+firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="100.111.0.22" port protocol="tcp" port="443" accept"
+firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="100.121.0.11" port protocol="tcp" port="443" accept"
+
+
+docker run -d -v /data/proxy/path/conf_2:/opt/shardingsphere-proxy/conf  --name=zzytest -e PORT=13307 -p14001:13307 ad5d11f03a2a
+docker run -d -v /data/proxy/path/conf_2:/opt/shardingsphere-proxy/conf -v /data/proxy/path/lib:/opt/shardingsphere-proxy/ext-lib  --name=zzytest -e PORT=13307 -p14001:13307 szaf/shardingsphere-proxy:v1.0
+docker run -d -v D:\Docker\proxy\conf:/opt/shardingsphere-proxy/conf    --name=zzytest -e PORT=13307 -p14001:13307 5d96c036dc34
+
+docker inspect --format '{{.LogPath}}' zzytest
+
+docker run -d -p 2181:2181  --name zookeeper  -v /data/zookeeper/data:/data    -v /data/zookeeper/conf:/conf  --restart=always  --privileged=true zookeeper
+
+
+
+DROP ENCRYPT RULE test;
+
+
+
+# mode:
+#   type: Cluster
+#   repository:
+#     type: ZooKeeper
+#     props:
+#       namespace: proxy_16
+#       server-lists: localhost:2181
+#       retryIntervalMilliseconds: 500
+#       timeToLiveSeconds: 60
+#       maxRetries: 3
+#       operationTimeoutMilliseconds: 500
+# authority:
+#   users:
+#     - user: root@%
+#       password: root
+#     - user: sharding
+#       password: sharding
+#   privilege:
+#     type: ALL_PERMITTED
+
+# rules:
+#   - !TRANSACTION
+#     defaultType: XA
+#     providerType: Atomikos
+#   - !SQL_PARSER
+#     sqlCommentParseEnabled: true
+#     sqlStatementCache:
+#       initialCapacity: 2000
+#       maximumSize: 65535
+#     parseTreeCache:
+#       initialCapacity: 128
+#       maximumSize: 1024
+
+# props:
+#   max-connections-size-per-query: 1
+#   kernel-executor-size: 16
+#   proxy-frontend-flush-threshold: 128
+#   proxy-hint-enabled: false
+#   sql-show: true
+#   check-table-metadata-enabled: false
+
+#   proxy-backend-query-fetch-size: -1
+#   proxy-frontend-executor-size: 0
+#   proxy-backend-executor-suitable: OLAP
+#   proxy-frontend-max-connections: 0
+
+#   sql-federation-type: NONE
+
+#   proxy-backend-driver-type: JDBC
+#   proxy-mysql-default-version: 5.5
+#   proxy-default-port: 13307
+#   proxy-netty-backlog: 1024
+
+
+
+==========================================
+mode:
+  type: Cluster
+  repository:
+    type: ZooKeeper
+    props:
+      namespace: proxy_1
+      server-lists: 192.168.20.81:2181
+      retryIntervalMilliseconds: 500 # ?𹀿ì?撮𼓫姣???
+      timeToLiveSeconds: 60  # 涓存𻠿?版𹀀澶辨𻃟?𶰿??
+      maxRetries: 3  # 瀹㈡𷰿绔???ユ𼲀澶ч𷣤璇𻀿??
+      operationTimeoutMilliseconds: 500 # 瀹㈡𷰿绔?𺣤浣𼰿??剁𼓛姣???
+#  overwrite: true                           # ??𹰿浣跨𺰿??𼰿?𹀿疆瑕𷐿𼣭?𶀿??𻐿𷃤缃
+#mode:
+#  # ?𻀿𸓙?规ā寮
+#  type: Standalone
+#  repository:
+
+# 杩𽐿𹐿 Sharding-Proxy ?堕𼲀瑕𶀿𼓛璐?𷰿?𸰿Ý?
+    - user: root
+      password: syswin#123?
+  # ?𶠿𼃧?𹀿疆锛𸰿𼳠涓ょ?锛𸰿𸳞瀹𼐿𻀿????𸰿𸂀?𸀿𽃚?
+  privilege:
+    type: ALL_PERMITTED
+
+rules:
+  - !TRANSACTION
+    defaultType: XA
+    providerType: Atomikos
+  - !SQL_PARSER
+    sqlCommentParseEnabled: true
+    sqlStatementCache:
+      initialCapacity: 2000
+      maximumSize: 65535
+    parseTreeCache:
+      initialCapacity: 128
+      maximumSize: 1024
+
+props:
+  max-connections-size-per-query: 1
+  kernel-executor-size: 16  # Infinite by default.
+  proxy-frontend-flush-threshold: 128  # The default value is 128.
+  proxy-hint-enabled: false
+  sql-show: false
+  check-table-metadata-enabled: false
+  # Proxy backend query fetch size. A larger value may increase the memory usage of ShardingSphere Proxy.
+  # The default value is -1, which means set the minimum value for different JDBC drivers.
+  proxy-backend-query-fetch-size: -1
+  proxy-frontend-executor-size: 0 # Proxy frontend executor size. The default value is 0, which means let Netty decide.
+  # Available options of proxy backend executor suitable: OLAP(default), OLTP. The OLTP option may reduce time cost of writing packets to client, but it may increase the latency of SQL execution
+  # and block other clients if client connections are more than `proxy-frontend-executor-size`, especially executing slow SQL.
+  proxy-backend-executor-suitable: OLAP
+  proxy-frontend-max-connections: 0 # Less than or equal to 0 means no limitation.
+  # Available sql federation type: NONE (default), ORIGINAL, ADVANCED
+  sql-federation-type: NONE
+  # Available proxy backend driver type: JDBC (default), ExperimentalVertx
+  proxy-backend-driver-type: JDBC
+  proxy-mysql-default-version: 5.5.62
+  proxy-default-port: 13307 # Proxy default port.
+  proxy-netty-backlog: 1024 # Proxy netty backlog.
+
+
+
+  ============正确配置=================
+  mode:
+    type: Cluster
+    repository:
+      type: ZooKeeper
+      props:
+        namespace: proxy_1
+        server-lists: 100.111.130.10:2181
+        retryIntervalMilliseconds: 5000
+        timeToLiveSeconds: 1600
+        maxRetries: 8
+        operationTimeoutMilliseconds: 5000
+
+
+  authority:
+    users:
+      - user: root
+        password: syswin#123?
+      - user: sharding
+        password: sharding
+    privilege:
+      type: ALL_PERMITTED
+
+  rules:
+    - !TRANSACTION
+      defaultType: XA
+      providerType: Atomikos
+    - !SQL_PARSER
+      sqlCommentParseEnabled: true
+      sqlStatementCache:
+        initialCapacity: 2000
+        maximumSize: 65535
+      parseTreeCache:
+        initialCapacity: 128
+        maximumSize: 1024
+
+  props:
+    max-connections-size-per-query: 1
+    kernel-executor-size: 16
+    proxy-frontend-flush-threshold: 128
+    proxy-hint-enabled: false
+    sql-show: false
+    check-table-metadata-enabled: false
+
+    proxy-backend-query-fetch-size: -1
+    proxy-frontend-executor-size: 0
+    proxy-backend-executor-suitable: OLAP
+    proxy-frontend-max-connections: 0
+
+    sql-federation-type: NONE
+
+    proxy-backend-driver-type: JDBC
+    proxy-mysql-default-version: 5.7
+    proxy-default-port: 13307
+    proxy-netty-backlog: 1024
+
