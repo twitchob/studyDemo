@@ -3,6 +3,8 @@ package com.example.designpattern.singleton;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.lang.reflect.Constructor;
+
 /**
  * @author zhangzhongyuan@szanfu.cn
  * @description
@@ -17,11 +19,11 @@ public class SingletonTest {
 
         new Thread(() -> {
             LazySingleton instance = LazySingleton.getInstance();
-            System.out.println("1:"+instance);
+            System.out.println("1:" + instance);
         }).start();
         new Thread(() -> {
             LazySingleton instance = LazySingleton.getInstance();
-            System.out.println("2:"+instance);
+            System.out.println("2:" + instance);
         }).start();
     }
 
@@ -31,6 +33,43 @@ public class SingletonTest {
 
 
     }
+
+    @Test
+    public void testStaticInnerClass() {
+        StaticInnerClassSingleton instance = StaticInnerClassSingleton.getInstance();
+        StaticInnerClassSingleton instance2 = StaticInnerClassSingleton.getInstance();
+        System.out.println(instance == instance2);
+    }
+
+
+    /**
+     * 反射
+     */
+    @Test
+    public void testReflect() throws Exception {
+        //获取构造器
+        Constructor<StaticInnerClassSingleton> declaredConstructor = StaticInnerClassSingleton.class.getDeclaredConstructor();
+        //强制访问
+        declaredConstructor.setAccessible(true);
+        //反射创建对象
+        StaticInnerClassSingleton instance = declaredConstructor.newInstance();
+
+        //静态内部类创建对象
+        StaticInnerClassSingleton instance2 = StaticInnerClassSingleton.getInstance();
+        System.out.println(instance == instance2);
+    }
+
+
+    /**
+     * 枚举
+     */
+    @Test
+    public void testEnum() {
+        EnumSingleton instance = EnumSingleton.INSTANCE;
+        EnumSingleton instance2 = EnumSingleton.INSTANCE;
+        System.out.println(instance == instance2);
+    }
+
 
 }
 
@@ -62,6 +101,7 @@ class LazySingleton {
         return instance;
     }
 }
+
 /**
  * 单例类 饿汉式
  */
@@ -78,8 +118,43 @@ class HungrySingleTon {
         return instance;
     }
 
-
-
 }
+
+
+/**
+ * 单例类 静态内部类
+ */
+class StaticInnerClassSingleton {
+    //1.私有构造器
+    private StaticInnerClassSingleton() {
+        //防止反射破坏单例
+        if (StaticInnerClass.INSTANCE != null) {
+            throw new RuntimeException("不允许创建多个实例");
+        }
+    }
+
+    //2.静态内部类
+    private static class StaticInnerClass {
+        private static final StaticInnerClassSingleton INSTANCE = new StaticInnerClassSingleton();
+    }
+
+    //3.静态共有方法
+    public static StaticInnerClassSingleton getInstance() {
+        return StaticInnerClass.INSTANCE;
+    }
+}
+
+
+/**
+ * 单例类 枚举
+ */
+enum EnumSingleton {
+    INSTANCE;
+
+    public void sayOk() {
+        System.out.println("ok");
+    }
+}
+
 
 
