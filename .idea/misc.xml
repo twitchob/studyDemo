@@ -6,10 +6,30 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/JavaTest/src/main/java/com/example/javatest/antlr/Hello.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="D:\learnPlace\TestToolForZZY\JavaTest\src\main\java\com\example\javatest\antlr" />
+          <option name="outputDir" value="D:\learnPlace\TestToolForZZY\JavaTest\src\main\java" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="hello" />
+          <option name="pkg" value="com.example.javatest.antlr.hello" />
+          <option name="language" value="" />
+          <option name="generateVisitor" value="true" />
+        </PerGrammarGenerationSettings>
+        <PerGrammarGenerationSettings>
+          <option name="fileName" value="$PROJECT_DIR$/JavaTest/src/main/java/com/example/javatest/antlr/Expression.g4" />
+          <option name="autoGen" value="true" />
+          <option name="outputDir" value="D:\learnPlace\TestToolForZZY\JavaTest\src\main\java" />
+          <option name="libDir" value="" />
+          <option name="encoding" value="" />
+          <option name="pkg" value="com.example.javatest.antlr.expression" />
+          <option name="language" value="" />
+          <option name="generateVisitor" value="true" />
+        </PerGrammarGenerationSettings>
+        <PerGrammarGenerationSettings>
+          <option name="fileName" value="$PROJECT_DIR$/JavaTest/src/main/java/com/example/javatest/antlr/Calculator.g4" />
+          <option name="autoGen" value="true" />
+          <option name="outputDir" value="D:\learnPlace\TestToolForZZY\JavaTest\src\main\java" />
+          <option name="libDir" value="" />
+          <option name="encoding" value="" />
+          <option name="pkg" value="com.example.javatest.antlr.calculator" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>

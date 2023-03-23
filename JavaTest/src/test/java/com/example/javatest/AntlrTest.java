@@ -1,8 +1,15 @@
 package com.example.javatest;
 
+import com.alibaba.druid.sql.dialect.mysql.parser.MySqlLexer;
+import com.example.javatest.antlr.calculator.AntlrVistor;
+import com.example.javatest.antlr.calculator.CalculatorLexer;
+import com.example.javatest.antlr.calculator.CalculatorParser;
+import com.example.javatest.antlr.hello.HelloLexer;
+import com.example.javatest.antlr.hello.HelloParser;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -20,46 +27,44 @@ import java.util.Set;
 @SpringBootTest
 public class AntlrTest {
 
+
+    @Test
+    public void antlrTest() {
+        //词法分析
+        HelloLexer lexer = new HelloLexer(CharStreams.fromString("hello worrd"));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        HelloParser parser = new HelloParser(tokens);
+        ParseTree tree = parser.r();
+        System.out.println(tree.toStringTree(parser));
+
+    }
+
     /**
-     * 测试
+     * 测试antlr4计算器
      */
     @Test
-    public void testAntlr() {
-        //定义字符串数组
-        String[] testStr = {
-                "Hello world",
-                "hello world",
-                "hi world"
-        };
-        //循环遍历字符串数组
-        for (String str : testStr) {
-            System.out.println("Input: " + str);
-            run(str);
-        }
-
-    }
-
-    public void run(String str) {
-
-        ANTLRInputStream input = new ANTLRInputStream(str);
-        //词法分析器
-        hello.HelloLexer lexer = new hello.HelloLexer(input);
-        //词法分析器的token流
+    public void testCalculator() {
+        //lexer
+        CalculatorLexer lexer = new CalculatorLexer(CharStreams.fromString("1+2*3"));
+        //token
         CommonTokenStream tokens = new CommonTokenStream(lexer);
-        //语法分析器
-        hello.HelloParser parser = new hello.HelloParser(tokens);
-        //语法分析器的规则
-        parser.r();
+        //parser
+        CalculatorParser parser = new CalculatorParser(tokens);
+        //调用规则
+        ParseTree tree = parser.expr();
+        AntlrVistor antlrVistor = new AntlrVistor();
+        Integer result = antlrVistor.visit(tree);
+        System.out.println("result = " + result);
 
     }
 
 
     @Test
-    public  void testMap() {
+    public void testMap() {
         HashMap<String, String> map = new HashMap<>();
-        map.put("1","11");
-        map.put("2","22");
-        map.put("3","33");
+        map.put("1", "11");
+        map.put("2", "22");
+        map.put("3", "33");
 
 
         System.out.println("map = " + map);
@@ -75,4 +80,6 @@ public class AntlrTest {
 
 
     }
+
+
 }
