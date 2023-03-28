@@ -41,6 +41,7 @@ public class NioDemo {
                 continue;
             }
 
+            //如果返回的>0,就获取到相关的selectionKey集合
             Set<SelectionKey> selectionKeys = selector.selectedKeys();
             for (SelectionKey key : selectionKeys) {
                 if (key.isAcceptable()) {
