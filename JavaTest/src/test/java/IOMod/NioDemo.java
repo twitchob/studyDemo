@@ -22,11 +22,16 @@ public class NioDemo {
 
     @Test
     public void server() throws Exception {
+        //创建ServerSocketChannel -> ServerSocket
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+        //bind
         serverSocketChannel.socket().bind(new InetSocketAddress("localhost", 5555));
+        // 设置非阻塞
         serverSocketChannel.configureBlocking(false);
 
+        //创建Selector
         Selector selector = Selector.open();
+        //将serverSocketChannel注册到selector上,并且selector对客户端accept连接操作感兴趣
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
 
         while (true) {
