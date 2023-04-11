@@ -4,6 +4,8 @@ import com.example.dynamicinject.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import javax.annotation.Resource;
+
 /**
  * @author zhangzhongyuan@szanfu.cn
  * @description
@@ -11,8 +13,7 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class TestController {
-
-    @Autowired
+    @Resource(name = "testServiceImpl2")
     TestService testService;
 
    public void test() {

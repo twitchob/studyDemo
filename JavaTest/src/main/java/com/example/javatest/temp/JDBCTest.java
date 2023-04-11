@@ -11,7 +11,8 @@ import java.sql.*;
 public class JDBCTest {
     public static void main(String[] args) throws  Exception{
         String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://192.168.20.81:3308/db1?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&allowMultiQueries=true";
+       // String url = "jdbc:mysql://192.168.20.81:3308/db1?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&allowMultiQueries=true";
+        String url = "jdbc:mysql://192.168.3.140:3306/test?characterEncoding=utf8&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8";
         String user = "root";
         String psw = "123456";
 
@@ -38,20 +39,20 @@ public class JDBCTest {
 //            System.out.println(resultSet.getString(3));
 //        }
 
-              Statement statement = conn.createStatement();
-              //select * from user_test
-                ResultSet resultSet = statement.executeQuery("select * from user_test");
-                while (resultSet.next()){
-                    System.out.println(resultSet.getString(1));
-                    System.out.println(resultSet.getString(2));
-                    System.out.println(resultSet.getString(3));
-                    System.out.println(resultSet.getString(4));
-                    System.out.println(resultSet.getString(5));
-                    System.out.println(resultSet.getString(6));
-                    System.out.println(resultSet.getString(7));
-                    System.out.println("===================================");
-                }
-
+//              Statement statement = conn.createStatement();
+//              //select * from user_test
+//                ResultSet resultSet = statement.executeQuery("select * from user_test");
+//                while (resultSet.next()){
+//                    System.out.println(resultSet.getString(1));
+//                    System.out.println(resultSet.getString(2));
+//                    System.out.println(resultSet.getString(3));
+//                    System.out.println(resultSet.getString(4));
+//                    System.out.println(resultSet.getString(5));
+//                    System.out.println(resultSet.getString(6));
+//                    System.out.println(resultSet.getString(7));
+//                    System.out.println("===================================");
+//                }
+//
 
     }
 }
