@@ -93,13 +93,13 @@ public class NettyDemo {
                         protected void initChannel(SocketChannel ch) throws Exception {
                             //添加客户端通道的处理器
                             ch.pipeline().addLast(new MyClientHandler());
+                            ch.pipeline().addLast(new MyClientHandler2());
                         }
                     });
             System.out.println("客户端准备就绪，随时可以起飞~");
             //连接服务端
             ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", 6666).sync();
-            //对通道关闭进行监听
-            channelFuture.channel().closeFuture().sync();
+            //对通道关闭进行监听            channelFuture.channel().closeFuture().sync();
         } finally {
             //关闭线程组
             eventExecutors.shutdownGracefully();

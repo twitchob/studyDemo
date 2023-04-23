@@ -5,7 +5,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -33,13 +32,10 @@ public class ByteBufferTest {
                 }
                 buffer.flip();
                 while (buffer.hasRemaining()) {
-                    byte b = buffer.get();
-                    System.out.println((char) b);
+                    System.out.println((char) buffer.get());
                 }
                 buffer.clear();
             }
-
-
         } catch (IOException e) {
         }
     }

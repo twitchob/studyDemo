@@ -1,5 +1,6 @@
 package others;
 
+import com.example.javatest.Color;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -47,5 +48,51 @@ public class Others {
             randomStr += Integer.toHexString((int) (Math.random() * 16));
         }
         return randomStr;
+    }
+
+    /**
+     * 测试数字类型的  & 算法
+     */
+    @Test
+    public void test2() {
+        int i = 0xff;
+        System.out.println(i);
+
+        int i1 = 1234;
+
+        int i2 = i1 & 0xff;
+        System.out.println(i2);
+
+
+    }
+    @Test
+    public void test3() {
+
+        System.out.println(Color.SGD_FALSE);
+    }
+
+    @Test
+    public void test4() {
+        int i = 255;
+        System.out.println(i);
+        System.out.println(toHexString(i));
+    }
+
+    private String toHexString(int n)
+    {
+        String code = Integer.toHexString(n);
+
+        for (int i = code.length(); i < 8; ++i) {
+            code = "0" + code;
+        }
+
+        return "0x" + code;
+    }
+
+
+    @Test
+    public void test5() {
+        int ordinal = Color.RED.ordinal();
+        System.out.println(ordinal);
     }
 }

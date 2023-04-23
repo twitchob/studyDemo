@@ -1,0 +1,1 @@
+docker run -p 13307:3306 --name mysql -v D:\Docker\mysql\mysqlForTDE\mysqlForTDE/conf:/etc/mysql/conf.d -v D:\Docker\mysql\mysqlForTDE/data:/var/lib/mysql -v D:\Docker\mysql\mysqlForTDE/logs:/logs -e MYSQL_ROOT_PASSWORD=123456 --privileged=true --restart=always -d mysql:8.0

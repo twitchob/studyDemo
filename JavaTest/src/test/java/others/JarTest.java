@@ -12,6 +12,5 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class JarTest {
     @Test
     public void test() {
-        System.out.println(com.szaf.TestUtils.getStr("123"));
     }
 }
