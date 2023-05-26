@@ -12,7 +12,7 @@ public class MyClientHandler2 extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("MyClientHandler2 channelActive");
-        System.out.println(ctx.channel().remoteAddress());
+        ctx.writeAndFlush("hello world");
     }
 
     @Override

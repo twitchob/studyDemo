@@ -79,6 +79,7 @@ public class NettyDemo {
      */
     @Test
     public void clientTest() throws Exception {
+        String s = "歪比巴卜~茉莉~Are you good~马来西亚~";
         NioEventLoopGroup eventExecutors = new NioEventLoopGroup();
         try {
             //创建bootstrap对象，配置参数
@@ -99,7 +100,8 @@ public class NettyDemo {
             System.out.println("客户端准备就绪，随时可以起飞~");
             //连接服务端
             ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", 6666).sync();
-            //对通道关闭进行监听            channelFuture.channel().closeFuture().sync();
+            //对通道关闭进行监听
+            channelFuture.channel().closeFuture().sync();
         } finally {
             //关闭线程组
             eventExecutors.shutdownGracefully();
