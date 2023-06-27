@@ -100,7 +100,6 @@ public class Others {
     @Test
     public void test6() {
         byte[] param = "1234567890".getBytes();
-        new SM3
 
     }
 }
