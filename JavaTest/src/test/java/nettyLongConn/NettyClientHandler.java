@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class NettyClientHandler extends SimpleChannelInboundHandler {
 
-    private NettyClient nettyClient;
+    private final NettyClient nettyClient;
     private int heartNumber;
 
     public NettyClientHandler(NettyClient nettyClient) {
@@ -47,7 +47,10 @@ public class NettyClientHandler extends SimpleChannelInboundHandler {
         ByteBuf msg1 = (ByteBuf) msg;
         byte[] bytes = new byte[msg1.readableBytes()];
         msg1.readBytes(bytes);
-        System.out.println("收到服务端消息:" + new String(bytes));
+        nettyClient.setRes(bytes);
+        synchronized (nettyClient) {
+            nettyClient.notify();
+        }
     }
 
 
@@ -58,9 +61,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler {
     public void channelInactive(ChannelHandlerContext ctx) {
         //使用过程中断线重连
         final EventLoop eventLoop = ctx.channel().eventLoop();
-        eventLoop.schedule(() -> {
-            nettyClient.connect();
-        }, 1, TimeUnit.SECONDS);
+        eventLoop.schedule(nettyClient::connect, 1, TimeUnit.SECONDS);
         ctx.fireChannelInactive();
     }
 
@@ -85,7 +86,6 @@ public class NettyClientHandler extends SimpleChannelInboundHandler {
         }
         super.userEventTriggered(ctx, evt);
     }
-
 
 
 }

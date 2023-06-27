@@ -95,4 +95,12 @@ public class Others {
         int ordinal = Color.RED.ordinal();
         System.out.println(ordinal);
     }
+
+
+    @Test
+    public void test6() {
+        byte[] param = "1234567890".getBytes();
+        new SM3
+
+    }
 }
