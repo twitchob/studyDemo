@@ -1,5 +1,6 @@
 package com.example.encrypt.desaes;
 
+
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 import javax.crypto.BadPaddingException;
@@ -10,7 +11,6 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 
 /**
  * @author zhangzhongyuan@szanfu.cn
@@ -44,7 +44,8 @@ public class DesAesDemo {
         des.init(Cipher.ENCRYPT_MODE, rule);
         //加密
         byte[] bytes = des.doFinal(input.getBytes(StandardCharsets.UTF_8));
-        //编码
-        return Base64.encode(bytes);
+        //编码 Base64
+        String encode = Base64.encode(bytes);
+
     }
 }

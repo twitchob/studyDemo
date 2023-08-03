@@ -40,6 +40,7 @@ public class NettyClient implements Runnable {
     @Setter
     private NettyClientHandler nettyClientHandler;
 
+
     public NettyClient(String host, int port, String password) {
         this.host = host;
         this.port = port;
@@ -47,7 +48,9 @@ public class NettyClient implements Runnable {
         connect();
     }
 
+
     public void connect() {
+
         if (group != null) {
             group.shutdownGracefully();
         }
