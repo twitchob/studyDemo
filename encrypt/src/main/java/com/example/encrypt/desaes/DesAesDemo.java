@@ -45,7 +45,6 @@ public class DesAesDemo {
         //加密
         byte[] bytes = des.doFinal(input.getBytes(StandardCharsets.UTF_8));
         //编码 Base64
-        String encode = Base64.encode(bytes);
-
+        return Base64.encode(bytes);
     }
 }
