@@ -226,8 +226,6 @@ public class TestByteBuffer {
             e.printStackTrace();
         }
     }
-
-
     /**
      * 黏包 半包
      */
@@ -239,7 +237,6 @@ public class TestByteBuffer {
         source.put("w are you?\n".getBytes());
         split(source);
     }
-
     private void split(ByteBuffer source) {
         source.flip();
         for (int i = 0; i < source.limit(); i++) {
@@ -255,5 +252,4 @@ public class TestByteBuffer {
         }
         source.compact();
     }
-
 }

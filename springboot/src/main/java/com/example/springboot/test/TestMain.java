@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @Description: 程序入口
  */
 
-@SpringBootTest
+@SpringBootTest(classes = TestMain.class)
 public class TestMain {
     @Autowired
     private Student student;
@@ -27,7 +27,7 @@ public class TestMain {
         System.out.println("======================================");
         System.out.println(person);
 //        ApplicationContext context = new AnnotationConfigApplicationContext(DruidConfig.class);
-//        Student student1 = (Student) context.getBean("student");
+//        Student student1 = (Student) context.getBean("Student");
 //        System.out.println(student1);
 
     }
