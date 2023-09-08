@@ -37,3 +37,6 @@ public class House extends Observable {
                 '}';
     }
 }
+
+
+
